@@ -18,4 +18,4 @@ INSERT INTO producto (id, name, price, usuario_id) VALUES
 (6, 'Producto 6', 600.00, 4),
 (7, 'Producto 7', 700.00, 4),
 (8, 'Producto 8', 800.00, 5);
-```
+

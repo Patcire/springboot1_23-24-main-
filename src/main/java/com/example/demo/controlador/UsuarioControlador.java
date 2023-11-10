@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
-@CrossOrigin(origins = "http://localhost:3000")
+
 @RestController
 @RequestMapping("/api/usuario")
 public class UsuarioControlador {
@@ -25,7 +25,6 @@ public class UsuarioControlador {
     }
 
     // Ejemplo de como funcionaría la función getmapping con DTO para usuario
-    @GetMapping("/")
     public ResponseEntity<List<UsuarioDTO>> getUsuarios() {
         List<UsuarioDTO> resultado = new ArrayList<>();
         for (Usuario usuario: usuarioRepositorio.findAll()) resultado.add(new UsuarioDTO(usuario));

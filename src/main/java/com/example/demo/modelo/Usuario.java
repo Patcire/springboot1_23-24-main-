@@ -1,5 +1,6 @@
 package com.example.demo.modelo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +20,7 @@ public final class Usuario {
 
     @NotBlank(message = "Email is mandatory")
     private String email;
+    @JsonBackReference
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Producto> productos;
 }
