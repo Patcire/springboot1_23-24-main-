@@ -56,7 +56,7 @@ public class UsuarioControlador {
                     existingUsuario.setEmail(usuario.getEmail());
                     return ResponseEntity.ok( usuarioRepositorio.save(existingUsuario));
                 })
-                .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado  con id " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Usuario not found with id " + id));
     }
 
     @DeleteMapping("/{id}")
@@ -64,7 +64,7 @@ public class UsuarioControlador {
         return usuarioRepositorio.findById(id)
                 .map(usuario -> {
                     usuarioRepositorio.delete(usuario);
-                    return ResponseEntity.ok().body("Usuario eliminado");
+                    return ResponseEntity.ok().body("Usuario deleted");
                 })
                 .orElseThrow(() -> new ResourceNotFoundException("Usuario not found with id " + id));
     }

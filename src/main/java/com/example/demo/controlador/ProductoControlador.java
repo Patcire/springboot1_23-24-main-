@@ -54,7 +54,7 @@ public class ProductoControlador {
     @PostMapping("/")
     public ResponseEntity<Producto> createProducto(@Valid @RequestBody Producto producto) {
         Producto sameProduct = productoRepositorio.findByName(producto.getName());
-        if (sameProduct!=null){
+        if (sameProduct==null){
             productoRepositorio.save(producto);
             return  ResponseEntity.ok(producto);
         }
@@ -80,7 +80,7 @@ public class ProductoControlador {
         return productoRepositorio.findById(id)
                 .map(producto -> {
                     productoRepositorio.delete(producto);
-                    return ResponseEntity.ok().build();
+                    return ResponseEntity.ok().body("Producto deleted");
                 })
                 .orElseThrow(() -> new ResourceNotFoundException("Producto not found with id " + id));
     }
