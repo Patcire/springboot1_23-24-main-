@@ -25,6 +25,7 @@ public class UsuarioControlador {
     }
 
     // Ejemplo de como funcionaría la función getmapping con DTO para usuario
+    @GetMapping("/")
     public ResponseEntity<List<UsuarioDTO>> getUsuarios() {
         List<UsuarioDTO> resultado = new ArrayList<>();
         for (Usuario usuario: usuarioRepositorio.findAll()) resultado.add(new UsuarioDTO(usuario));
@@ -63,7 +64,7 @@ public class UsuarioControlador {
         return usuarioRepositorio.findById(id)
                 .map(usuario -> {
                     usuarioRepositorio.delete(usuario);
-                    return ResponseEntity.ok().build();
+                    return ResponseEntity.ok().body("Usuario eliminado");
                 })
                 .orElseThrow(() -> new ResourceNotFoundException("Usuario not found with id " + id));
     }
