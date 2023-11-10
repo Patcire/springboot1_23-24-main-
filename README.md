@@ -18,3 +18,6 @@ para la relación entre usuario y producto. Razones para usar y para no usar DTO
 > la recursividad de las respuestas en la consulta. Pero especialmente es recomendable por
 > una cuestión de seguridad, ya que sin DTO el usuario podría ver como se relacionan los datos
 > en nuestra BBDD y por tanto podrían explotar vulnerabilidades o acceder a información no deseada
+
+Enlace al JSON de los test:
+()[https://github.com/Patcire/springboot1_23-24-main-/blob/main/test_API_producto.json]
