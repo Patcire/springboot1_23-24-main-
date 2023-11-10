@@ -97,7 +97,7 @@ public class ProductoControlador {
     }
 
     @PutMapping("/{id}/productos/{productoId}")
-    public ResponseEntity<Producto> updateProducto(@PathVariable Long id, @PathVariable Long productoId, @Valid @RequestBody Producto productoRequest) {
+    public ResponseEntity<Producto> updateProductoOfUsuario(@PathVariable Long id, @PathVariable Long productoId, @Valid @RequestBody Producto productoRequest) {
         if(!usuarioRepositorio.existsById(id)) {
             throw new ResourceNotFoundException("Usuario not found with id " + id);
         }
